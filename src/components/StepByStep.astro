@@ -14,6 +14,11 @@ const steps = [
     image: '/images/3.jpeg',
     title: 'Producto de Calidad',
     description: 'Nuestro enfoque es crear productos resistentes y sostenibles que contribuyan a un mundo mejor, aprovechando materiales reciclados con dedicación y pasión.',
+  },
+  {
+    image: '/images/4.jpeg',
+    title: 'Cultura Ecológica',
+    description: 'Cada vez más de 25.000 botellas de plástico PET que reciclamos. Nos esforzamos por crear una comunidad de colaboradores ecológicos que se dedican al ecosistema.',
   }
 ];
 ---
@@ -48,6 +53,7 @@ const steps = [
     gap: 1.5rem;
   }
 
+  /* Alternar la posición de la imagen en pantallas grandes */
   .step-left .step-image { order: -1; }
   .step-right .step-image { order: 1; }
 
@@ -70,17 +76,27 @@ const steps = [
     max-width: 500px;
   }
 
-  /* Responsividad */
+  /* Responsividad para pantallas pequeñas */
   @media (max-width: 768px) {
     .step {
-      flex-direction: column;
+      flex-direction: column; /* Cambia la dirección para que el texto esté debajo de la imagen */
       text-align: center;
     }
+
+    /* Asegura que la imagen ocupe el ancho completo */
     .step-image {
       max-width: 100%;
     }
+
+    /* Asegura que el texto esté centrado y ocupe el ancho completo en móviles */
     .step-content p {
       max-width: 100%;
+    }
+
+    /* Restaura el orden predeterminado para que el texto esté siempre debajo de la imagen */
+    .step-left .step-image,
+    .step-right .step-image {
+      order: 0;
     }
   }
 </style>
