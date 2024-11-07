@@ -1,0 +1,86 @@
+---
+const steps = [
+  {
+    image: '/src/assets/1.jpeg',
+    title: 'Transformación de PET en Redes',
+    description: 'Nuestro equipo convierte botellas de plástico PET en redes duraderas. A través de un proceso innovador, reciclamos plástico para crear productos ecológicos y de alta calidad.',
+  },
+  {
+    image: '/src/assets/2.jpeg',
+    title: 'Dedicación y Aprendizaje',
+    description: 'Como equipo de novatos apasionados, hemos aprendido cada paso en la creación de redes con materiales reciclados, priorizando la calidad en cada detalle.',
+  },
+  {
+    image: '/src/assets/3.jpeg',
+    title: 'Producto de Calidad',
+    description: 'Nuestro enfoque es crear productos resistentes y sostenibles que contribuyan a un mundo mejor, aprovechando materiales reciclados con dedicación y pasión.',
+  }
+];
+---
+
+<div class="steps-container">
+  {steps.map((step, index) => (
+    <div class={`step ${index % 2 === 0 ? 'step-left' : 'step-right'}`}>
+      <div class="step-image">
+        <img src={step.image} alt={step.title} />
+      </div>
+      <div class="step-content">
+        <h2>{step.title}</h2>
+        <p>{step.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .step-left .step-image { order: -1; }
+  .step-right .step-image { order: 1; }
+
+  .step-image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .step-content h2 {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem;
+    color: #2b5938;
+  }
+
+  .step-content p {
+    font-size: 1.1rem;
+    color: #fff;
+    max-width: 500px;
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .step {
+      flex-direction: column;
+      text-align: center;
+    }
+    .step-image {
+      max-width: 100%;
+    }
+    .step-content p {
+      max-width: 100%;
+    }
+  }
+</style>
